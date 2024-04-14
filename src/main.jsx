@@ -8,6 +8,7 @@ import Index from "./routes/index";
 
 import Contact, {
   loader as contactLoader,
+  action as contactAction,
 } from "./routes/contact";
 
 import Root, { loader as rootLoader,   action as rootAction, 
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
         path: "contacts/:contactId",
         element: <Contact />,
         loader: contactLoader,
+        action: contactAction,
+
       },
       {
         path: "contacts/:contactId/edit",
