@@ -36,6 +36,19 @@ const router = createBrowserRouter([
 
     children: [
       { index: true, element: <Index /> },
+      {
+        errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Index /> },
+          {
+            path: "contacts/:contactId",
+            element: <Contact />,
+            loader: contactLoader,
+            action: contactAction,
+          },
+          /* the rest of the routes */
+        ],
+      },
 
       {
         path: "contacts/:contactId",
