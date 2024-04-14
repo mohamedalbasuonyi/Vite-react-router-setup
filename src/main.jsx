@@ -4,6 +4,7 @@ import * as ReactDOM from "react-dom/client";
 import ErrorPage from "./error-page";
 import { action as destroyAction } from "./routes/destroy";
 
+import Index from "./routes/index";
 
 import Contact, {
   loader as contactLoader,
@@ -33,6 +34,8 @@ const router = createBrowserRouter([
 
 
     children: [
+      { index: true, element: <Index /> },
+
       {
         path: "contacts/:contactId",
         element: <Contact />,
@@ -47,6 +50,7 @@ const router = createBrowserRouter([
       {
         path: "contacts/:contactId/destroy",
         action: destroyAction,
+        errorElement: <div>Oops! There was an error.</div>,
       },
     ],
   },
